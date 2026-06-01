@@ -100,7 +100,7 @@ export default function SubmitRun({ loggedInName, profilePic, accessToken }) {
       const timeSeconds = selectedActivity.moving_time; 
 
       setStatus('🏃‍♂️ Saving run to database...');
-      await axios.post('http://https://fitness-leaderboard-dun.vercel.app/api/runs', {
+      await axios.post('https://fitness-leaderboard-dun.vercel.app/api/runs', {
         runnerName: loggedInName,
         runnerProfilePic: profilePic,
         distanceKm: distanceKm, 
