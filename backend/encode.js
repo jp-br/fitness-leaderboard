@@ -1,5 +1,5 @@
-const mySecretJson = `
-{
+// We are storing it as a standard JavaScript Object now
+const mySecretObject = {
   "type": "service_account",
   "project_id": "fitness-leaderboard-56e48",
   "private_key_id": "f4fa32d035019073cd23775c3df6afeb5519dd40",
@@ -11,7 +11,8 @@ const mySecretJson = `
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40fitness-leaderboard-56e48.iam.gserviceaccount.com",
   "universe_domain": "googleapis.com"
-}
-`;
+};
 
-console.log(Buffer.from(mySecretJson).toString('base64'));
+// JSON.stringify safely locks the text formatting in place before we scramble it
+const safeJsonString = JSON.stringify(mySecretObject);
+console.log(Buffer.from(safeJsonString).toString('base64'));

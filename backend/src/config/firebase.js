@@ -1,12 +1,14 @@
+// backend/src/config/firebase.js
 const admin = require('firebase-admin');
 
-// Grab the scrambled Base64 string from Vercel
-const base64Credentials = process.env.FIREBASE_CREDENTIALS;
+// ✨ We changed the name so the rogue .env file cannot override us!
+const base64Credentials = process.env.VERCEL_FIREBASE_BASE64;
 
-// Unscramble it back into raw text
+if (!base64Credentials) {
+  console.error("CRITICAL ERROR: Missing VERCEL_FIREBASE_BASE64 variable!");
+}
+
 const decodedCredentials = Buffer.from(base64Credentials, 'base64').toString('utf-8');
-
-// Turn it into a JSON object for Firebase
 const serviceAccount = JSON.parse(decodedCredentials);
 
 if (!admin.apps.length) {
