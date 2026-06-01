@@ -33,7 +33,7 @@ export default function CommunityFeed({ user }) {
   const handleKudos = async (runId) => {
     if (!user) return alert("Please log in to like a run!");
     try {
-      const response = await axios.post(`http://https://fitness-leaderboard-dun.vercel.app/api/runs/${runId}/kudos`, {
+      const response = await axios.post(`https://fitness-leaderboard-dun.vercel.app/api/runs/${runId}/kudos`, {
         runnerName: user.name
       });
       
@@ -53,7 +53,7 @@ export default function CommunityFeed({ user }) {
     if (!text || text.trim() === '') return;
 
     try {
-      const response = await axios.post(`http://https://fitness-leaderboard-dun.vercel.app/api/runs/${runId}/comments`, {
+      const response = await axios.post(`https://fitness-leaderboard-dun.vercel.app/api/runs${runId}/comments`, {
         runnerName: user.name,
         text: text
       });
