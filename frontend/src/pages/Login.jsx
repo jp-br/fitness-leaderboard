@@ -3,8 +3,10 @@ export default function Login() {
   // ⚠️ YOUR ACTUAL STRAVA CLIENT ID IS SAFE HERE
   const STRAVA_CLIENT_ID = '250160'; 
 
-  const handleStravaLogin = () => {
-    const redirectUrl = 'http://localhost:5173/';
+const handleStravaLogin = () => {
+    // ✨ Automatically detects if you are on localhost or your Vercel domain!
+    const redirectUrl = window.location.origin; 
+    
     window.location.href = `https://www.strava.com/oauth/authorize?client_id=${STRAVA_CLIENT_ID}&response_type=code&redirect_uri=${redirectUrl}&approval_prompt=force&scope=activity:read_all`;
   };
 
