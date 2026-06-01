@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* stylelint-enable at-rule-no-unknown */
+
+/* Optional: Adds a smooth dark background to the whole app to prevent white flashing */
+body {
+  background-color: #020617; /* This is Tailwind's slate-950 color */
+}
