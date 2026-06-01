@@ -10,7 +10,14 @@ app.get('/', (req, res) => {
   res.send('VirtualRunner API Server is running smoothly!');
 });
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://virtualrunner.vercel.app', // Your live frontend
+    'http://localhost:5173'             // So it still works on your PC
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true
+}));
 app.use(express.json()); 
 
 // --- STRAVA OAUTH HANDSHAKE ROUTE ---
