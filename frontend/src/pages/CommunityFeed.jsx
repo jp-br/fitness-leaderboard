@@ -16,7 +16,7 @@ export default function CommunityFeed({ user }) {
  const fetchRuns = async () => {
     try {
       // ✨ NEW: Uses Vercel URL if deployed, or localhost if you are coding on your PC!
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const apiUrl = import.meta.env.VITE_API_URL || 'https://fitness-leaderboard-dun.vercel.app';
       const response = await axios.get(`${apiUrl}/api/runs`);
       
       // Sort the runs so the newest ones are always at the top
@@ -33,7 +33,7 @@ export default function CommunityFeed({ user }) {
   const handleKudos = async (runId) => {
     if (!user) return alert("Please log in to like a run!");
     try {
-      const response = await axios.post(`http://localhost:5000/api/runs/${runId}/kudos`, {
+      const response = await axios.post(`http://https://fitness-leaderboard-dun.vercel.app/api/runs/${runId}/kudos`, {
         runnerName: user.name
       });
       
@@ -53,7 +53,7 @@ export default function CommunityFeed({ user }) {
     if (!text || text.trim() === '') return;
 
     try {
-      const response = await axios.post(`http://localhost:5000/api/runs/${runId}/comments`, {
+      const response = await axios.post(`http://https://fitness-leaderboard-dun.vercel.app/api/runs/${runId}/comments`, {
         runnerName: user.name,
         text: text
       });

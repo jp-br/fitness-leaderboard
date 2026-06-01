@@ -24,7 +24,7 @@ function App() {
       window.history.replaceState({}, document.title, "/"); // Hide code from URL
       setStatus('🔄 Authenticating with Strava...');
       
-      axios.post('http://localhost:5000/api/strava/verify', { code })
+      axios.post('https://fitness-leaderboard-dun.vercel.app', { code })
         .then(response => {
           if (response.data.success) {
             setUser({
